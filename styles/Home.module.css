@@ -21,6 +21,8 @@
   height: 30px;
   border-radius: 5px;
   background: transparent;
+  position: fixed;
+  bottom: 50px;
 }
 
 .btn:hover{
@@ -149,6 +151,7 @@
 }
 
 .maquinaescrever {
+  margin-top: 50px;
   font-family: monospace;
   font-size: 18px;
   border-right: 2px solid rgb(78, 78, 78);
