@@ -23,6 +23,10 @@
   background: transparent;
 }
 
+.btn:hover{
+  transform: rotate(90deg);
+}
+
 .footer {
   width: 100%;
   height: 100px;
@@ -126,4 +130,30 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(95, 95, 95);
+  }
+}
+
+.maquinaescrever {
+  font-family: monospace;
+  font-size: 18px;
+  border-right: 2px solid rgb(78, 78, 78);
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+  animation: typing 2s steps(40, end), blink-caret 0.7s ease-in-out infinite;
 }

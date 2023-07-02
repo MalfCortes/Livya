@@ -8,9 +8,27 @@ const index = () =>{
   const [dado, setdado] = useState('')
 
   const faz = () => {
+    setdado('')
     const n = Math.floor(Math.random()*elogios.length)
-    setdado( elogios[n] )
+    maquinaEscrever( elogios[n] )
   }
+
+  const maquinaEscrever = (texto) => {
+    let charIndex = 0;
+    const interval = setInterval(() => {
+      let l = texto.charAt(charIndex)
+      setdado((prev) => (prev + l))
+      charIndex++;
+      if (charIndex === texto.length) {
+        clearInterval(interval);
+      }
+    }, 150);
+    
+    return () => {
+      clearInterval(interval);
+    };
+  }
+   
 
   useEffect(()=>{
     faz()
@@ -26,8 +44,10 @@ const index = () =>{
         <h1 className={styles.title}>
          Pra você
         </h1>
- 
-      <p>{dado}</p>
+        
+      <p className={styles.maquinaescrever}>{dado}</p>
+      
+
       <button onClick={faz} className={styles.btn}>
         <svg  fill="#000000" height="10px" width="10px" version="1.1" id="Capa_1" viewBox="0 0 489.645 489.645" >
 <g>
